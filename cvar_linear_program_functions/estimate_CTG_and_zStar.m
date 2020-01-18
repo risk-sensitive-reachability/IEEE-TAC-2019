@@ -24,7 +24,7 @@ nl = length(ls);  % number of confidence levels
 nu = length(us);  % number of control actions to evaluate
 
 f_full = zeros(nd,nl); 
-for i = 1 : nl, f_full(:,i) = scenario.P/config.ls(i); end
+for i = 1 : nl, f_full(:,i) = scenario.P/ls(i); end
 f_full = vec(f_full); 
 f_full = repmat(f_full, nu, 1);
 
