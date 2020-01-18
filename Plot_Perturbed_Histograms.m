@@ -40,7 +40,7 @@ function [] = Plot_Perturbed_Histograms(scenarioID, configurationID, x0)
 
     else
 
-       error("No results available for this scenario and configuration. Please Run_Bellman_Recursion.");
+       error('No results available for this scenario and configuration. Please Run_Bellman_Recursion.');
 
     end
     

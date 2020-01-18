@@ -39,7 +39,7 @@ function [] = generate_histograms(scenarioID, configurationID, x0, l0, perturbed
 
         else
 
-           error("No results available for this scenario and configuration. Please Run_Bellman_Recursion.");
+           error('No results available for this scenario and configuration. Please Run_Bellman_Recursion.');
 
         end
         

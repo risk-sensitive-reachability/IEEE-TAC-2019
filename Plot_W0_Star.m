@@ -24,7 +24,7 @@ function Plot_W0_Star(scenarioID, configurationID)
 
     else
 
-       error("No results available for this scenario and configuration. Please Run_Monte_Carlo first.");
+       error('No results available for this scenario and configuration. Please Run_Monte_Carlo first.');
 
     end
 
@@ -59,7 +59,7 @@ function Plot_W0_Star(scenarioID, configurationID)
             saveas(gcf,path_to_png);
             saveas(gcf,path_to_fig);
         else 
-            disp("Plotting not implemented for this combination of config. and scenario.")
+            disp('Plotting not implemented for this combination of config. and scenario.')
         end
 
     else 

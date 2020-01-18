@@ -44,7 +44,7 @@ if strcmpi(cvx_status, 'Solved') && ~isinf(cvx_optval) && ~isnan(cvx_optval)
     zStar = vec(Z./repmat(ls',nd,nu));
     break;
 elseif j == 2
-    disp("Failed to solve at location: xindx = "); 
+    disp('Failed to solve at location: xindx = '); 
     disp(xindx);
     error('maxExp.m: cvx not solved.');
 end

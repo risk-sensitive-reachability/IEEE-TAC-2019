@@ -27,7 +27,7 @@ function[] = Plot_Level_Sets(scenarioID, configurationID)
 
     else
 
-       error("No results available for this scenario and configuration. Please Run_Bellman_Recursion and Run_Monte_Carlo first.");
+       error('No results available for this scenario and configuration. Please Run_Bellman_Recursion and Run_Monte_Carlo first.');
 
     end
     
@@ -107,7 +107,7 @@ function[] = Plot_Level_Sets(scenarioID, configurationID)
             saveas(gcf,path_to_fig);
             
         else 
-            
+            error('Plotting level sets currently only available for CVAR.');
         end
 
     else

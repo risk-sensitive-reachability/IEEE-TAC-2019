@@ -81,7 +81,7 @@ function [] = Run_Monte_Carlo(scenarioID, configurationID)
 
         else    
 
-            error("No results available for this scenario and configuration. Please Run_Bellman first.");
+            error('No results available for this scenario and configuration. Please Run_Bellman first.');
 
         end
 

@@ -27,7 +27,7 @@ function Plot_J0(scenarioID, configurationID)
 
     else
 
-       error("No results available for this scenario and configuration. Please Run_Bellman_Recursion first.");
+       error('No results available for this scenario and configuration. Please Run_Bellman_Recursion first.');
 
     end
 
@@ -60,7 +60,7 @@ function Plot_J0(scenarioID, configurationID)
             saveas(gcf,path_to_png);
             saveas(gcf,path_to_fig);
         else 
-            disp("Plotting not implemented for this combination of config. and scenario.")
+            disp('Plotting not implemented for this combination of config. and scenario.')
         end
     else 
         if strcmp(scenario.risk_functional, 'CVAR')
