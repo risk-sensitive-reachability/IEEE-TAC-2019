@@ -77,12 +77,13 @@ function Plot_W0_Star(scenarioID, configurationID)
                  
                 drawnow
 
-                path_to_png = strcat(staging_area, strcat(['W0', '_', num2str(config.monte_carlo_levels(j)), '_', '.png']));
-                path_to_fig = strcat(staging_area, strcat(['W0', '_', num2str(config.monte_carlo_levels(j)), '_', '.fig']));
-                saveas(gcf,path_to_png);
-                saveas(gcf,path_to_fig);
-
             end
+
+            path_to_png = strcat(staging_area, 'W0.png');
+            path_to_fig = strcat(staging_area, 'W0.fig');
+            saveas(gcf,path_to_png);
+            saveas(gcf,path_to_fig);
+
         else
                 figure; FigureSettings; mesh(ambient.x2g, ambient.x1g, reshape(J0_MC, [ambient.x2n, ambient.x1n]));
                 view(-19,43)

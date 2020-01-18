@@ -81,11 +81,6 @@ function Plot_J0(scenarioID, configurationID)
                     title(['$J_0([x_1, x_2]^T,\alpha)$ at $\alpha$ = ', num2str(config.ls(j))],'Interpreter','Latex','FontSize', 22);
                     drawnow
 
-                    path_to_png = strcat(staging_area,strcat(['J0','_',num2str(config.ls(j)),'_','.png']));
-                    path_to_fig = strcat(staging_area,strcat(['J0','_',num2str(config.ls(j)),'_','.fig']));
-
-                    saveas(gcf,path_to_png);
-                    saveas(gcf,path_to_fig);
                 end
                 monte_level = monte_level+1;
                 end
@@ -94,6 +89,12 @@ function Plot_J0(scenarioID, configurationID)
                 end
             
             end
+            
+            path_to_png = strcat(staging_area,'J0.png');
+            path_to_fig = strcat(staging_area,'J0.fig');
+
+            saveas(gcf,path_to_png);
+            saveas(gcf,path_to_fig);
             
         else
                 figure; FigureSettings; mesh(ambient.x2g, ambient.x1g, reshape(Js{1}(:), [ambient.x2n, ambient.x1n]));
