@@ -97,7 +97,7 @@ function Plot_J0(scenarioID, configurationID)
             saveas(gcf,path_to_fig);
             
         else
-                figure; FigureSettings; mesh(ambient.x2g, ambient.x1g, reshape(Js{1}(:), [ambient.x2n, ambient.x1n]));
+                figure; set_figure_properties; mesh(ambient.x2g, ambient.x1g, reshape(Js{1}(:), [ambient.x2n, ambient.x1n]));
                 view(-19,43)
                 title('Dyn. Programming');
                 xlabel('X1'); ylabel('X2'); zlabel(['Estimate of J_{0}(x1,x2) at theta =', num2str(scenario.theta)]);

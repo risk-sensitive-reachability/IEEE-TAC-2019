@@ -63,7 +63,7 @@ function Plot_W0_Star(scenarioID, configurationID)
         end
 
     else 
-        figure; FigureSettings; 
+        figure; set_figure_properties; 
         if strcmp(scenario.risk_functional, 'CVAR')
             for j = 1:length(config.monte_carlo_levels)
                  
@@ -85,7 +85,7 @@ function Plot_W0_Star(scenarioID, configurationID)
             saveas(gcf,path_to_fig);
 
         else
-                figure; FigureSettings; mesh(ambient.x2g, ambient.x1g, reshape(J0_MC, [ambient.x2n, ambient.x1n]));
+                figure; set_figure_properties; mesh(ambient.x2g, ambient.x1g, reshape(J0_MC, [ambient.x2n, ambient.x1n]));
                 view(-19,43)
                 title('Dyn. Programming');
                 xlabel('X1'); ylabel('X2'); zlabel(['Estimate of W_0^*(x1,x2) at theta =', num2str(scenario.theta)]);
