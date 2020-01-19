@@ -25,7 +25,7 @@ function [ Zs_k, J_k, mu_k ] = attempt_CVAR_linear_program(J_kPLUS1, amb, cfg, s
     
     Zs_k = cell(size(J_k));
 
-    for i = 1 : amb.nx     % <--x's change along columns of J_k, X, L-->
+    parfor i = 1 : amb.nx     % <--x's change along columns of J_k, X, L-->
         
         % disable warnings
         warning('off','all');
@@ -58,12 +58,12 @@ function [ Zs_k, J_k, mu_k ] = attempt_CVAR_linear_program(J_kPLUS1, amb, cfg, s
                     % if we have more confidence levels than will fit in a
                     % single LP, then evaluate next batch
                     if rem_ls >= cfg.max_ls_per_LP
-                        [zStars_us_ls, cvar_us_ls] = estimate_CTG_and_zStar(J_kPLUS1, i, F, cfg, scn, amb, us(uset:uset+(cfg.max_us_per_LP-1)), cfg.ls(lset:lset+(cfg.max_ls_per_LP-1)));
+                        [zStars_us_ls, cvar_us_ls] = estimate_CTG_and_zStar(i, F, cfg, scn, amb, us(uset:uset+(cfg.max_us_per_LP-1)), cfg.ls(lset:lset+(cfg.max_ls_per_LP-1)));
                     
                     % else all of the remaining confidence levels will fit in
                     % a single LP, so evaluate all remaining
                     else
-                        [zStars_us_ls, cvar_us_ls] = estimate_CTG_and_zStar(J_kPLUS1, i, F, cfg, scn, amb, us(uset:uset+(cfg.max_us_per_LP-1)), cfg.ls(lset:lset+rem_ls));
+                        [zStars_us_ls, cvar_us_ls] = estimate_CTG_and_zStar(i, F, cfg, scn, amb, us(uset:uset+(cfg.max_us_per_LP-1)), cfg.ls(lset:lset+rem_ls));
                     end
                     
                     % store temporary results
@@ -85,12 +85,12 @@ function [ Zs_k, J_k, mu_k ] = attempt_CVAR_linear_program(J_kPLUS1, amb, cfg, s
                     % if we have more confidence levels than will fit in a
                     % single LP, then evaluate next batch
                     if rem_ls >= cfg.max_ls_per_LP
-                        [zStars_us_ls, cvar_us_ls] = estimate_CTG_and_zStar(J_kPLUS1, i, F, cfg, scn, amb, us(uset:uset+rem_us), cfg.ls(lset:lset+(cfg.max_ls_per_LP-1)));
+                        [zStars_us_ls, cvar_us_ls] = estimate_CTG_and_zStar(i, F, cfg, scn, amb, us(uset:uset+rem_us), cfg.ls(lset:lset+(cfg.max_ls_per_LP-1)));
                     
                     % else all of the remaining confidence levels will fit in
                     % a single LP, so evaluate all remaining
                     else
-                        [zStars_us_ls, cvar_us_ls] = estimate_CTG_and_zStar(J_kPLUS1, i, F, cfg, scn, amb, us(uset:uset+rem_us), cfg.ls(lset:lset+rem_ls));
+                        [zStars_us_ls, cvar_us_ls] = estimate_CTG_and_zStar(i, F, cfg, scn, amb, us(uset:uset+rem_us), cfg.ls(lset:lset+rem_ls));
                     end
                     
                     % store temporary results
