@@ -12,11 +12,16 @@ function config = get_config(configId)
 
     % Maximum number of controls to attempt to
     % attempt a solution for in a single LP
-    config.max_us_per_LP = 15;                       
+    
+    % NOTE: The parallel implementation only supports 1 control per LP. 
+    config.max_us_per_LP = 1;                       
     
     % Maximum number of confidence levels (y in state space)
     % to attempt a solution for in a single LP
-    config.max_ls_per_LP = 15;                       
+    
+    % NOTE: The parallel implementation only supports 1 confidence level
+    % per LP. 
+    config.max_ls_per_LP = 1;                       
 
     % discretized confidence levels
     % n.b. descending order matters when you get to the stage where you interpolate  markov policies
@@ -40,6 +45,8 @@ function config = get_config(configId)
 
     config.grid_upper_buffer = 1.5;                		% [ft]
     config.grid_lower_buffer = 0; 
+    
+    config.solver_path = which('linprog'); 
 
     switch configId
 
@@ -68,7 +75,7 @@ function config = get_config(configId)
             config.ls = VERY_FINE_LS;          % column vector
 
         otherwise
-            display('error loading config')
+            disp('error loading config')
 
     end
 
